@@ -1,0 +1,9 @@
+div{border:solid 1px black;padding:1%;position:absolute;right:10%;width:20%;background:-moz-linear-gradient(right,black,grey,black);background:-webkit-linear-gradient(right,black,grey,black);background:-ms-linear-gradient(right,black,grey,black);background:-o-linear-gradient(right,black,grey,black);font-family:Papyrus;text-decoration:none;color:white;text-align:center;border-radius:100px 10px 100px 10px}
+div#play{top:40%;right:50%}
+.option:link{}
+.option:hover{background:blue;background:-moz-linear-gradient(right,black,white,black);background:-webkit-linear-gradient(right,black,white,black);background:-ms-linear-gradient(right,black,white,black);background:-o-linear-gradient(right,black,white,black);}
+div#exit{position:absolute;z-index:-10;right:10pt;top:10px;}
+div#userbox{width:100%;height:5%;background:rgb(30,30,30);position:absolute;top:0;left:0;border-radius:0;}
+span#logout{position:absolute;right:40px;top:0}
+span a{color:white;text-decoration:none}
+span a:hover{color:cyan}

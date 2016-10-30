@@ -1,0 +1,16 @@
+p{position:absolute;z-index:1;color:white;font-size:20pt;top:85%;left:2%}
+h1{color:red;font-family:Papyrus;}
+a {position:absolute;}
+a:hover{position:absolute;}
+img{width:140px;height:100px}
+a#mu{top:25%;left:40%;}
+a#rm{top:25%;left:60%;}
+a#brc{top:35%;left:75%;}
+a#ch{top:50%;left:90%;}
+a#bm{top:65%;left:75%;}
+a#jv{top:75%;left:60%;}
+a#th{top:75%;left:40%;}
+a#wh{top:65%;left:25%;}
+a#ac{top:50%;left:10%;}
+a#ar{top:35%;left:25%;}
+a:hover img{height:120px;width:160px}

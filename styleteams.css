@@ -1,0 +1,5 @@
+div{position:absolute;border:1px solid black;text-align:center;font-family:Bradley Hand ITC;width:40%;color:black;background:-moz-linear-gradient(right,black,rgb(200,200,200),black); background:-ms-linear-gradient(right,black,rgb(200,200,200),black); background:-webkit-linear-gradient(right,black,rgb(200,200,200),black); background:-o-linear-gradient(right,black,rgb(200,200,200),black);}
+div#teamb{top:0px;left:8%;border-radius:100px}
+div#formb{top:0px;left:52%;border-radius:100px;}	
+iframe{display:none;height:98%;width:100%;border-radius:20px;}
+iframe#team{display:inline}

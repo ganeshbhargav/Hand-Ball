@@ -1,0 +1,32 @@
+#bg {position:absolute;top:0;left:0;height:100%;width:100%;z-index:-3;opacity:0.5;}
+div{ width:100%;position:absolute;left:45em;top:2em;z-index:1}
+div#p{left:1em;}
+canvas#c{width:100%;height:100%;position:absolute;top:0;left:0;opacity:0.5;z-index:-2}
+div#p1d{display:none;}
+div#p2d{display:none;}
+div#p3d{display:none;}
+div#p4d{display:none;}
+div#p5d{display:none;}
+div#p6d{display:none;}
+div#p7d{display:none;}
+div#p8d{display:none;}
+div#p9d{display:none;}
+div#p10d{display:none;}
+div#p11d{display:none;}
+div fieldset img#img{width:12em;height:15em;}
+fieldset{ text-align:center;width:30em;height:35em;background:-moz-linear-gradient(top,black,white); background:-ms-linear-gradient(top,black,white); background:-webkit-linear-gradient(top,black,white); background:-o-linear-gradient(top,black,white);}
+fieldset legend{ font-family:Bradley Hand ITC;background:black;border-radius:10px 10px;font-size:18pt;color:white}
+div fieldset p#d{font-family:Bradley Hand ITC;background:-moz-linear-gradient(top,black,gray); background:-ms-linear-gradient(top,black,gray); background:-webkit-linear-gradient(top,black,gray); background:-o-linear-gradient(top,black,gray);border-radius:30px;font-size:15pt;padding:10px;color:white}
+p#title{ font-family:Bradley Hand ITC;text-align:center;font-size:20pt;font-style:italic;background:-moz-linear-gradient(top,black,gray); background:-ms-linear-gradient(top,black,gray); background:-webkit-linear-gradient(top,black,gray); background:-o-linear-gradient(top,black,gray);border-radius:30px;font-size:15pt;padding:10px;color:white;position:absolute;top:0;right:43%}
+ul li{ font-family:Bradley Hand ITC; border:solid black 1px; margin:10px; padding:10px;width:30%;background:-moz-linear-gradient(left,black,white);background:-webkit-linear-gradient(left,black,white);background:-ms-linear-gradient(left,black,white);background:-o-linear-gradient(left,black,white);color:white;transform:skewx(-30deg);border-radius: 30px 30px 30px 30px;width:25em;font-size:11pt}
+div li#p1:hover{ background:-moz-linear-gradient(right,rgb(150,150,150),black); background:-ms-linear-gradient(right,rgb(150,150,150),black); background:-webkit-linear-gradient(right,rgb(150,150,150),black); background:-o-linear-gradient(right,rgb(150,150,150),black); transform:skewX(-30deg);border-radius: 0px 0px 0px 0px}
+div li#p2:hover{ background:-moz-linear-gradient(right,rgb(150,150,150),black);  background:-ms-linear-gradient(right,rgb(150,150,150),black); background:-webkit-linear-gradient(right,rgb(150,150,150),black); background:-o-linear-gradient(right,rgb(150,150,150),black);transform:skewX(-30deg);border-radius: 0px 0px 0px 0px}
+div li#p3:hover{ background:-moz-linear-gradient(right,rgb(150,150,150),black);  background:-ms-linear-gradient(right,rgb(150,150,150),black); background:-webkit-linear-gradient(right,rgb(150,150,150),black); background:-o-linear-gradient(right,rgb(150,150,150),black);transform:skewX(-30deg);border-radius: 0px 0px 0px 0px}
+div li#p4:hover{ background:-moz-linear-gradient(right,rgb(150,150,150),black);  background:-ms-linear-gradient(right,rgb(150,150,150),black); background:-webkit-linear-gradient(right,rgb(150,150,150),black); background:-o-linear-gradient(right,rgb(150,150,150),black);transform:skewX(-30deg);border-radius: 0px 0px 0px 0px}
+div li#p5:hover{ background:-moz-linear-gradient(right,rgb(150,150,150),black);  background:-ms-linear-gradient(right,rgb(150,150,150),black); background:-webkit-linear-gradient(right,rgb(150,150,150),black); background:-o-linear-gradient(right,rgb(150,150,150),black);transform:skewX(-30deg);border-radius: 0px 0px 0px 0px}
+div li#p6:hover{ background:-moz-linear-gradient(right,rgb(150,150,150),black);  background:-ms-linear-gradient(right,rgb(150,150,150),black); background:-webkit-linear-gradient(right,rgb(150,150,150),black); background:-o-linear-gradient(right,rgb(150,150,150),black);transform:skewX(-30deg);border-radius: 0px 0px 0px 0px}
+div li#p7:hover{ background:-moz-linear-gradient(right,rgb(150,150,150),black);  background:-ms-linear-gradient(right,rgb(150,150,150),black); background:-webkit-linear-gradient(right,rgb(150,150,150),black); background:-o-linear-gradient(right,rgb(150,150,150),black);transform:skewX(-30deg);border-radius: 0px 0px 0px 0px}
+div li#p8:hover{ background:-moz-linear-gradient(right,rgb(150,150,150),black);  background:-ms-linear-gradient(right,rgb(150,150,150),black); background:-webkit-linear-gradient(right,rgb(150,150,150),black); background:-o-linear-gradient(right,rgb(150,150,150),black);transform:skewX(-30deg);border-radius: 0px 0px 0px 0px}
+div li#p9:hover{ background:-moz-linear-gradient(right,rgb(150,150,150),black);  background:-ms-linear-gradient(right,rgb(150,150,150),black); background:-webkit-linear-gradient(right,rgb(150,150,150),black); background:-o-linear-gradient(right,rgb(150,150,150),black);transform:skewX(-30deg);border-radius: 0px 0px 0px 0px}
+div li#p10:hover{ background:-moz-linear-gradient(right,rgb(150,150,150),black);  background:-ms-linear-gradient(right,rgb(150,150,150),black); background:-webkit-linear-gradient(right,rgb(150,150,150),black); background:-o-linear-gradient(right,rgb(150,150,150),black);transform:skewX(-30deg);border-radius: 0px 0px 0px 0px}
+div li#p11:hover{ background:-moz-linear-gradient(right,rgb(150,150,150),black);  background:-ms-linear-gradient(right,rgb(150,150,150),black); background:-webkit-linear-gradient(right,rgb(150,150,150),black); background:-o-linear-gradient(right,rgb(150,150,150),black);transform:skewX(-30deg);border-radius: 0px 0px 0px 0px}

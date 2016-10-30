@@ -1,0 +1,444 @@
+<html>
+	<head>
+		<style>
+			body
+				{
+					background-repeat: no-repeat;
+					background-size: 1700px 700px;
+				}
+			#bg{height:100%;width:100%;position:absolute;z-index:-10;top:0;right:0}
+		</style>
+		<script>
+			var interval=null;
+			var global=0;
+			var i=0;
+			var imgs=new Array(22);
+			function run()
+			{
+				if(i==21)
+					i=0;
+				document.getElementById('bg').src = i+".png";
+				i++;
+				global++;
+				if(global==41)
+					start();
+			}
+				
+			function myFunction() 
+			{
+				interval=window.setInterval("run()",200);
+			}
+		
+		
+			var key=0;
+			var goal=0;
+			var current=0;
+			var count=0;
+			var comp=0;
+			var user=0;
+			function start()
+			{
+				document.getElementById('bg').style.opacity=0.5;
+				document.getElementById("formation").src="formation.png";
+				var input=document.getElementById("play");
+				var output=document.getElementById("cpu");
+				var stat=document.getElementById("status");
+				if(key==0)
+				{
+					stat.innerHTML="Choose 1 for Odd or 2 for Even";
+					var ch=window.prompt("Choose 1 for Odd or 2 for Even");
+					var ctoss=Math.floor((Math.random() * 6) + 1);
+					var uutoss=window.prompt("enter number for toss");
+					window.alert("random no. "+ctoss);
+					var utoss=parseInt(uutoss);
+					var total= utoss+ctoss;
+					window.alert("total "+total);
+					if(ch==1)
+					{
+						if(total%2!=0)
+						{
+							window.alert("you win");
+							document.getElementById("pointer").style.left=704;
+							document.getElementById("pointer").style.top=190;
+							current=704190;
+						}
+						else
+						{
+							window.alert("you loose");
+							document.getElementById("pointer").style.left=671;
+							document.getElementById("pointer").style.top=172;
+							current=671172;
+						}
+					}
+					else
+					{
+						if(total%2==0)
+						{
+							window.alert("you win");
+							document.getElementById("pointer").style.left=704;
+							document.getElementById("pointer").style.top=190;
+							current=704190;
+						}
+						else
+						{
+							window.alert("you loose");
+							document.getElementById("pointer").style.left=671;
+							document.getElementById("pointer").style.top=172;
+							current=671172;
+						}
+					}
+				}	
+				count++;
+				rest();
+			}
+			
+			function rest()
+			{
+				while(count<20)
+				{
+					var cin=Math.floor((Math.random() * 6) + 1);
+					var uuin=window.prompt("enter number");
+					var uin=parseInt(uuin);
+					var diff;
+					if(cin>uin)
+						diff=cin-uin;
+					else if(uin>cin)
+						diff=uin-cin;
+					else if(uin==cin)
+						diff=0;
+					switch(current)
+					{
+						case 266252:document.getElementById("pointer").style.left=683;
+									document.getElementById("pointer").style.top=259;
+									current=683259;
+									break;
+						case 47387:	if(diff<3)//our objecttive is to predict a number close to comp
+									{
+										document.getElementById("pointer").style.left=671;
+										document.getElementById("pointer").style.top=172;
+										current=671172;
+									}
+									else
+									{
+										document.getElementById("pointer").style.left=538;
+										document.getElementById("pointer").style.top=161;
+										current=538161;
+									}
+									break;
+						case 297257:if(diff<3)//our objecttive is to predict a number close to comp
+									{
+										document.getElementById("pointer").style.left=266;
+										document.getElementById("pointer").style.top=252;
+										current=266252;
+										user++;
+										window.alert("goal c-u :"+comp+"-"+user);
+									}
+									else
+									{
+										document.getElementById("pointer").style.left=456;
+										document.getElementById("pointer").style.top=247;
+										current=456247;
+									}
+									break;
+						case 671172:if(diff<3)//our objecttive is to predict a number close to comp
+									{
+										document.getElementById("pointer").style.left=538;
+										document.getElementById("pointer").style.top=161;
+										current=538161;
+									}
+									else
+									{
+										document.getElementById("pointer").style.left=708;
+										document.getElementById("pointer").style.top=48;
+										current=70848;
+									}
+									break;
+						case 704190:if(diff<3)//our objecttive is to predict a number close to comp
+									{
+										document.getElementById("pointer").style.left=540;
+										document.getElementById("pointer").style.top=302;
+										current=540302;
+									}
+									else
+									{
+										document.getElementById("pointer").style.left=850;
+										document.getElementById("pointer").style.top=169;
+										current=850169;
+									}
+									break;
+						case 456247:if(diff<3)//our objecttive is to predict a number close to comp
+									{
+										document.getElementById("pointer").style.left=540;
+										document.getElementById("pointer").style.top=302;
+										current=540302;
+									}
+									else
+									{
+										document.getElementById("pointer").style.left=577;
+										document.getElementById("pointer").style.top=252;
+										current=577252;
+									}
+									break;
+						case 462413:if(diff<3)//our objecttive is to predict a number close to comp
+									{
+										document.getElementById("pointer").style.left=540;
+										document.getElementById("pointer").style.top=302;
+										current=540302;
+									}
+									else
+									{
+										document.getElementById("pointer").style.left=670;
+										document.getElementById("pointer").style.top=329;
+										current=670329;
+									}
+									break;	
+						case 538161:if(diff<3)//our objecttive is to predict a number close to comp
+									{
+										document.getElementById("pointer").style.left=297;
+										document.getElementById("pointer").style.top=257;
+										current=297257;
+									}
+									else
+									{
+										document.getElementById("pointer").style.left=671;
+										document.getElementById("pointer").style.top=172;
+										current=671172;
+									}
+									break;
+						case 577252:if(diff<3)//our objecttive is to predict a number close to comp
+									{
+										document.getElementById("pointer").style.left=538;
+										document.getElementById("pointer").style.top=161;
+										current=538161;
+									}
+									else
+									{
+										document.getElementById("pointer").style.left=670;
+										document.getElementById("pointer").style.top=329;
+										current=670329;
+									}
+									break;
+						case 540302:if(diff<3)//our objecttive is to predict a number close to comp
+									{
+										document.getElementById("pointer").style.left=297;
+										document.getElementById("pointer").style.top=257;
+										current=297257;
+									}
+									else
+									{
+										document.getElementById("pointer").style.left=679;
+										document.getElementById("pointer").style.top=468;
+										current=679468;
+									}
+									break;
+						case 67649: if(diff<3)//our objecttive is to predict a number close to comp
+									{
+										document.getElementById("pointer").style.left=538;
+										document.getElementById("pointer").style.top=161;
+										current=538161;
+									}
+									else
+									{
+										document.getElementById("pointer").style.left=708;
+										document.getElementById("pointer").style.top=48;
+										current=70848;
+									}
+									break;
+						case 683259:if(diff<3)//our objecttive is to predict a number close to comp
+									{
+										document.getElementById("pointer").style.left=538;
+										document.getElementById("pointer").style.top=161;
+										current=538161;
+									}	
+									else
+									{
+										document.getElementById("pointer").style.left=850;
+										document.getElementById("pointer").style.top=169;
+										current=850169;
+									}
+									break;
+						case 670329:if(diff<3)//our objecttive is to predict a number close to comp
+									{
+										document.getElementById("pointer").style.left=540;
+										document.getElementById("pointer").style.top=302;
+										current=540302;
+									}
+									else
+									{
+										document.getElementById("pointer").style.left=718;
+										document.getElementById("pointer").style.top=463;
+										current=718463;
+									}
+									break;
+						case 679468:if(diff<3)//our objecttive is to predict a number close to comp
+									{
+										document.getElementById("pointer").style.left=540;
+										document.getElementById("pointer").style.top=302;
+										current=540302;
+									}
+									else
+									{
+										document.getElementById("pointer").style.left=718;
+										document.getElementById("pointer").style.top=463;
+										current=718463;
+									}
+									break;
+						case 70848:if(diff<3)//our objecttive is to predict a number close to comp
+									{
+										document.getElementById("pointer").style.left=676;
+										document.getElementById("pointer").style.top=49;
+										current=67649;
+									}
+									else
+									{
+										document.getElementById("pointer").style.left=850;
+										document.getElementById("pointer").style.top=169;
+										current=850169;
+									}
+									break;
+						case 704302:if(diff<3)//our objecttive is to predict a number close to comp
+									{
+										document.getElementById("pointer").style.left=540;
+										document.getElementById("pointer").style.top=302;
+										current=540302;
+									}
+									else
+									{
+										document.getElementById("pointer").style.left=854;
+										document.getElementById("pointer").style.top=321;
+										current=854321;
+									}
+									break;			
+						case 718463:if(diff<3)//our objecttive is to predict a number close to comp
+									{
+										document.getElementById("pointer").style.left=704;
+										document.getElementById("pointer").style.top=302;
+										current=704302;
+									}
+									else
+									{
+										document.getElementById("pointer").style.left=854;
+										document.getElementById("pointer").style.top=321;
+										current=854321;
+									}
+									break;
+						case 85957: if(diff<3)//our objecttive is to predict a number close to comp
+									{
+										document.getElementById("pointer").style.left=704;
+										document.getElementById("pointer").style.top=190;
+										current=704190;
+									}
+									else
+									{
+										document.getElementById("pointer").style.left=850;
+										document.getElementById("pointer").style.top=169;
+										current=850169;
+									}
+									break;
+						case 850169:if(diff<3)//our objecttive is to predict a number close to comp
+									{
+										document.getElementById("pointer").style.left=704;
+										document.getElementById("pointer").style.top=190;
+										current=704190;
+									}
+									else
+									{
+										document.getElementById("pointer").style.left=1065;
+										document.getElementById("pointer").style.top=259;
+										current=1065259;
+									}
+									break;
+						case 854321:if(diff<3)//our objecttive is to predict a number close to comp
+									{
+										document.getElementById("pointer").style.left=704;
+										document.getElementById("pointer").style.top=302;
+										current=704302;
+									}
+									else
+									{
+										document.getElementById("pointer").style.left=1065;
+										document.getElementById("pointer").style.top=259;
+										current=1065259;
+									}
+									break;
+						case 864459:if(diff<3)//our objecttive is to predict a number close to comp
+									{
+										document.getElementById("pointer").style.left=704;
+										document.getElementById("pointer").style.top=302;
+										current=704302;
+									}
+									else
+									{
+										document.getElementById("pointer").style.left=854;
+										document.getElementById("pointer").style.top=321;
+										current=854321;
+									}
+									break;
+						case 904177:if(diff<3)//our objecttive is to predict a number close to comp
+									{
+										document.getElementById("pointer").style.left=859;
+										document.getElementById("pointer").style.top=57;
+										current=85957;
+									}
+									else
+									{
+										document.getElementById("pointer").style.left=850;
+										document.getElementById("pointer").style.top=169;
+										current=850169;
+									}
+									break;
+						case 911319:if(diff<3)//our objecttive is to predict a number close to comp
+									{
+										document.getElementById("pointer").style.left=864;
+										document.getElementById("pointer").style.top=459;
+										current=864459;
+									}
+									else
+									{
+										document.getElementById("pointer").style.left=854;
+										document.getElementById("pointer").style.top=321;
+										current=854321;
+									}
+									break;
+						case 1065259:if(diff<3)//our objecttive is to predict a number close to comp
+									{
+										document.getElementById("pointer").style.left=904;
+										document.getElementById("pointer").style.top=177;
+										current=904177;
+									}
+									else
+									{
+										document.getElementById("pointer").style.left=1104;
+										document.getElementById("pointer").style.top=246;
+										current=1104246;
+										comp++;
+										window.alert("goal c-u :"+comp+"-"+user);
+									}
+									break;
+						case 1104246:document.getElementById("pointer").style.left=683;
+									document.getElementById("pointer").style.top=259;
+									current=683259;
+									break;
+								
+					}
+					count++;
+				}
+				if(comp>user)
+					window.alert("comp wins");
+				else if(user>comp)
+					window.alert("user wins");
+				else if(user==comp)
+					window.alert("its a tie");
+			}
+		</script>	
+	</head>
+	<body onload="myFunction()" >
+		<img src="1.png" id="bg"/>
+		<div ><img id="pointer" style="position:absolute;" src="ball.png" height="30" width="30" /></div>
+		<div><center><img id="formation"  height="500"></center></div>
+		<p id="coords"></p>
+		<input type="text" id="play"/>
+		<output id="cpu"/>
+		<div id="status"><div>
+	</body>
+</html>

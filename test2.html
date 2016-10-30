@@ -1,0 +1,37 @@
+<html>
+<head>
+	<title>REGISTER IN OUR WEBSITE</title>
+	<link rel="stylesheet" href="bg.css"/>
+	<link rel="stylesheet" href="register.css"/>
+</head>
+<body>
+<script>
+function check()
+{
+var p1 = document.getElementById("password");
+var p2 = document.getElementById("rpswd");
+if (p1.value != p2.value )
+{
+	window.alert("passwords don't match");
+	p1.value=null;
+	p2.value=null;
+	p1.focus();
+	return false;
+}
+return true;
+}
+</script>
+<img src="stadium.jpg" id="bg" alt="img"/>
+<form method="post" action="login.php" onsubmit="return check()">
+<div>
+<span>REGISTER</span><br/><br/><br/>
+	<pre>Name:             <input type="text" required ><br/><br/></pre>
+	<pre>Choose a username:<input type="text" style="font-family:Bradley Hand ITC;font-size:20pt;" name ="input2" id="input" accesskey="u" required><br/><br/></pre>
+	<pre>create Password:  <input type="password" style="font-family:Bradley Hand ITC;font-size:20pt;" name="password2" id="password" accesskey="p" required><br/><br/></pre>
+	<pre>Re-type Password: <input type="password" id="rpswd" required><br/><br/></pre>	
+<input type="submit"  style="font-family:Bradley Hand ITC;font-size:20pt;" name="button1" id="button1" value="submit">
+</div>
+</form>
+</body>
+</html>
+
