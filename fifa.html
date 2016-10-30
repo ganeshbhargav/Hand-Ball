@@ -1,0 +1,542 @@
+<html>
+	<head>
+		<style>
+			body
+				{
+					background-repeat: no-repeat;
+					background-size: 1700px 700px;
+				}
+			a:link{text-decoration:none;font-family:Bradley Hand ITC; background:rgb(0,0,100); color:white; border-radius:10px 10px 0px 0px;padding:10px;position:absolute;}
+			a:hover{background:orange}
+			#bg{height:100%;width:100%;position:absolute;z-index:-10;top:0;right:0}
+			img{position:absolute;z-index:10;}
+			img#b1{left:10pt;top:10pt;}
+			img#b2{left:100pt;top:10pt;}
+			img#b3{left:10pt;top:105pt;}
+			img#b4{left:100pt;top:105pt;}
+			img#b5{left:10pt;top:210pt;}
+			img#b6{left:100pt;top:210pt;}
+			span{position:absolute;z-index:11;font-family:Bradley Hand ITC;font-size:20pt}
+			span#n1{left:25pt;top:75pt;}
+			span#n2{left:115pt;top:75pt;}
+			span#n3{left:25pt;top:170pt;}
+			span#n4{left:115pt;top:170pt;}
+			span#n5{left:25pt;top:275pt;}
+			span#n6{left:115pt;top:275pt;}
+			div#time{position:absolute;z-index:9;background-color:rgb(0,0,100);height:20pt;width:0pt;bottom:10pt;border-radius:10px}
+			div#timetext{position:absolute;z-index:9;height:20pt;width:1000pt;bottom:20pt}
+			span#t0{left:0pt;background:black;border-radius:100px 100px 10px 10px;color:white;padding:10px}
+			span#t30{left:333pt;background:black;border-radius:100px 100px 10px 10px;color:white;padding:10px}
+			span#t45{left:500pt;background:black;border-radius:100px 100px 10px 10px;color:white;padding:10px}
+			span#t60{left:666pt;background:black;border-radius:100px 100px 10px 10px;color:white;padding:10px}
+			span#t90{left:980pt;background:black;border-radius:100px 100px 10px 10px;color:white;padding:10px}
+			#pointer{z-index:20}
+			#formation{right:160pt;top:20pt}
+			div#buttons{background:yellow;border-radius:10px; padding:30pt;height:300pt;width:90pt;position:absolute;top:40pt;right:10pt;}
+			img#cpu{left:55pt;top:100pt;}
+			div#score{position:absolute;bottom:45pt;left:120pt;z-index:-30;background:rgb(0,0,100);width:800pt;height:40pt;border-radius:40px;}
+			span#c{top:5pt;left:200pt;background:red;padding:5px;border-radius:10px}
+			span#u{top:5pt;right:200pt;background:yellow;padding:5px;border-radius:10px}
+			span#cs{top:5pt;left:300pt;font-size:30pt;color:white}
+			span#us{top:5pt;right:300pt;font-size:30pt;color:white}
+			span#d{top:5pt;right:520;font-size:30pt;}
+			div#status{position:absolute;background:red;top:20%;left:10px;width:100pt;height:150pt;z-index:40;padding:20pt;font-family:Bradley Hand ITC;font-size:20pt;z-index:-40;border-radius:10px}
+		</style>
+		
+		<script>
+			var interval=null;
+			var global=0;
+			var i=0;
+			function run()
+			{
+				if(i<21)document.getElementById('bg').src = i+".png";
+				else if(i<31)document.getElementById('bg').src="lineup.jpg";
+				else document.getElementById('bg').src="lineup2.jpg";
+				i++;
+				global++;
+				if(global==41)
+				{	window.clearInterval(interval);
+					start();
+				}
+			}
+				
+			function myFunction() 
+			{
+				document.getElementById('buttons').style.zIndex=-20;
+				interval=window.setInterval("run()",250);
+			}
+		
+		
+			var key=0;
+			var goal=0;
+			var current=0;
+			var count=0;
+			var comp=0;
+			var user=0;
+			function start()
+			{
+				document.getElementById('bg').src="stadium.jpg";
+				document.getElementById('bg').style.opacity=0.7;
+				document.getElementById("formation").src="formation.png";
+				document.getElementById('buttons').style.zIndex=10;
+				document.getElementById('buttons').style.zIndex=10;
+				document.getElementById('score').style.zIndex=20;
+				document.getElementById('status').style.zIndex=20;
+				var stat=document.getElementById("status");
+				if(key==0)
+				{
+					var ctoss=Math.floor((Math.random() * 6) + 1);
+					var uutoss=window.prompt("enter number for toss");
+					var utoss=parseInt(uutoss);
+					var total= utoss+ctoss;
+					if(total%2==0)
+					{
+						window.alert("you win the toss");
+						document.getElementById("pointer").style.left=704;
+						document.getElementById("pointer").style.top=190;
+						current=704190;
+					}
+					else
+					{
+						window.alert("you loose the toss");
+						document.getElementById("pointer").style.left=671;
+						document.getElementById("pointer").style.top=172;
+						current=671172;
+					}
+				}	
+				document.getElementById('status').innerHTML="GAME BEGINS!!";
+				game();
+			}
+			function one(){if(timer<1000)rest("1"); else result()}
+			function two(){if(timer<1000)rest("2"); else result()}
+			function three(){if(timer<1000)rest("3"); else result()}
+			function four(){if(timer<1000)rest("4"); else result()}
+			function five(){if(timer<1000)rest("5"); else result()}
+			function six(){if(timer<1000)rest("6"); else result()}
+			function game()
+			{
+				interval=window.setInterval("timingit()",50);
+			}
+			var timer=0;
+			function timingit()
+			{
+				timer++;
+				if(timer<=1000)
+					document.getElementById("time").style.width=timer+"pt";
+				else timer=1002;
+			}
+			function rest(uuin)
+			{
+					var stat=document.getElementById('status');
+					var cs=document.getElementById("cs");
+					var us=document.getElementById("us");
+					var cin=Math.floor((Math.random() * 6) + 1);
+					var uin=parseInt(uuin);
+					var diff;
+					if(cin>uin)
+						diff=cin-uin;
+					else if(uin>cin)
+						diff=uin-cin;
+					else if(uin==cin)
+						diff=0;
+					switch(current)
+					{
+						case 266252:document.getElementById("pointer").style.left=683;
+									document.getElementById("pointer").style.top=259;
+									current=683259;
+									break;
+						case 47387:	if(diff<2)//our objecttive is to predict a number close to comp
+									{
+										document.getElementById("pointer").style.left=671;
+										document.getElementById("pointer").style.top=172;
+										stat.innerHTML="User has the ball ("+diff+")";
+										current=671172;
+									}
+									else
+									{
+										document.getElementById("pointer").style.left=538;
+										document.getElementById("pointer").style.top=161;
+										stat.innerHTML="CPU has the ball ("+diff+")";
+										current=538161;
+									}
+									break;
+						case 297257:if(diff<1)//our objecttive is to predict a number close to comp
+									{
+										document.getElementById("pointer").style.left=266;
+										document.getElementById("pointer").style.top=252;
+										stat.innerHTML="SCORES!!!<br/>GOALLLL!!!<br/>("+diff+")";
+										current=266252;
+										user++;
+										window.alert("GOALL!!!!!!!!!!!!!!!!");
+										us.innerHTML=user;
+										document.getElementById("pointer").style.left=683;
+										document.getElementById("pointer").style.top=259;
+										current=683259;
+									}
+									else
+									{
+										document.getElementById("pointer").style.left=456;
+										document.getElementById("pointer").style.top=247;
+										stat.innerHTML="Almost!!! Missed it!!<br/> ("+diff+")";;
+										current=456247;
+									}
+									break;
+						case 671172:if(diff<2)//our objecttive is to predict a number close to comp
+									{
+										document.getElementById("pointer").style.left=538;
+										document.getElementById("pointer").style.top=161;
+										stat.innerHTML="User has the ball ("+diff+")";
+										current=538161;
+									}
+									else
+									{
+										document.getElementById("pointer").style.left=708;
+										document.getElementById("pointer").style.top=48;
+										stat.innerHTML="CPU has the ball ("+diff+")";
+										current=70848;
+									}
+									break;
+						case 704190:if(diff<2)//our objecttive is to predict a number close to comp
+									{
+										document.getElementById("pointer").style.left=540;
+										document.getElementById("pointer").style.top=302;
+										stat.innerHTML="User has the ball ("+diff+")";
+										current=540302;
+									}
+									else
+									{
+										document.getElementById("pointer").style.left=850;
+										document.getElementById("pointer").style.top=169;
+										stat.innerHTML="CPU has the ball ("+diff+")";
+										current=850169;
+									}
+									break;
+						case 456247:if(diff<2)//our objecttive is to predict a number close to comp
+									{
+										document.getElementById("pointer").style.left=540;
+										document.getElementById("pointer").style.top=302;
+										stat.innerHTML="User has the ball ("+diff+")";
+										current=540302;
+									}
+									else
+									{
+										document.getElementById("pointer").style.left=577;
+										document.getElementById("pointer").style.top=252;
+										stat.innerHTML="CPU has the ball ("+diff+")";
+										current=577252;
+									}
+									break;
+						case 462413:if(diff<2)//our objecttive is to predict a number close to comp
+									{
+										document.getElementById("pointer").style.left=540;
+										document.getElementById("pointer").style.top=302;
+										stat.innerHTML="User has the ball ("+diff+")";
+										current=540302;
+									}
+									else
+									{
+										document.getElementById("pointer").style.left=670;
+										document.getElementById("pointer").style.top=329;
+										stat.innerHTML="CPU has the ball ("+diff+")";
+										current=670329;
+									}
+									break;	
+						case 538161:if(diff<2)//our objecttive is to predict a number close to comp
+									{
+										document.getElementById("pointer").style.left=297;
+										document.getElementById("pointer").style.top=257;
+										stat.innerHTML="Here's a Chance!!Can He Score??";
+										current=297257;
+									}
+									else
+									{
+										document.getElementById("pointer").style.left=671;
+										document.getElementById("pointer").style.top=172;
+										stat.innerHTML="CPU has the ball ("+diff+")";
+										current=671172;
+									}
+									break;
+						case 577252:if(diff<2)//our objecttive is to predict a number close to comp
+									{
+										document.getElementById("pointer").style.left=538;
+										document.getElementById("pointer").style.top=161;
+										stat.innerHTML="User has the ball ("+diff+")";
+										current=538161;
+									}
+									else
+									{
+										document.getElementById("pointer").style.left=670;
+										document.getElementById("pointer").style.top=329;
+										stat.innerHTML="CPU has the ball ("+diff+")";
+										current=670329;
+									}
+									break;
+						case 540302:if(diff<2)//our objecttive is to predict a number close to comp
+									{
+										document.getElementById("pointer").style.left=297;
+										document.getElementById("pointer").style.top=257;
+										stat.innerHTML="User has the ball ("+diff+")";
+										current=297257;
+									}
+									else
+									{
+										document.getElementById("pointer").style.left=679;
+										document.getElementById("pointer").style.top=468;
+										stat.innerHTML="CPU has the ball ("+diff+")";
+										current=679468;
+									}
+									break;
+						case 67649: if(diff<2)//our objecttive is to predict a number close to comp
+									{
+										document.getElementById("pointer").style.left=538;
+										document.getElementById("pointer").style.top=161;
+										stat.innerHTML="User has the ball ("+diff+")";
+										current=538161;
+									}
+									else
+									{
+										document.getElementById("pointer").style.left=708;
+										document.getElementById("pointer").style.top=48;
+										stat.innerHTML="CPU has the ball ("+diff+")";
+										current=70848;
+									}
+									break;
+						case 683259:if(diff<2)//our objecttive is to predict a number close to comp
+									{
+										document.getElementById("pointer").style.left=538;
+										document.getElementById("pointer").style.top=161;
+										stat.innerHTML="User has the ball ("+diff+")";
+										current=538161;
+									}	
+									else
+									{
+										document.getElementById("pointer").style.left=850;
+										document.getElementById("pointer").style.top=169;
+										stat.innerHTML="CPU has the ball ("+diff+")";
+										current=850169;
+									}
+									break;
+						case 670329:if(diff<2)//our objecttive is to predict a number close to comp
+									{
+										document.getElementById("pointer").style.left=540;
+										document.getElementById("pointer").style.top=302;
+										stat.innerHTML="User has the ball ("+diff+")";
+										current=540302;
+									}
+									else
+									{
+										document.getElementById("pointer").style.left=718;
+										document.getElementById("pointer").style.top=463;
+										stat.innerHTML="CPU has the ball ("+diff+")";
+										current=718463;
+									}
+									break;
+						case 679468:if(diff<2)//our objecttive is to predict a number close to comp
+									{
+										document.getElementById("pointer").style.left=540;
+										document.getElementById("pointer").style.top=302;
+										stat.innerHTML="User has the ball ("+diff+")";
+										current=540302;
+									}
+									else
+									{
+										document.getElementById("pointer").style.left=718;
+										document.getElementById("pointer").style.top=463;
+										stat.innerHTML="CPU has the ball ("+diff+")";
+										current=718463;
+									}
+									break;
+						case 70848:if(diff<2)//our objecttive is to predict a number close to comp
+									{
+										document.getElementById("pointer").style.left=676;
+										document.getElementById("pointer").style.top=49;
+										stat.innerHTML="User has the ball ("+diff+")";
+										current=67649;
+									}
+									else
+									{
+										document.getElementById("pointer").style.left=850;
+										document.getElementById("pointer").style.top=169;
+										stat.innerHTML="CPU has the ball ("+diff+")";
+										current=850169;
+									}
+									break;
+						case 704302:if(diff<2)//our objecttive is to predict a number close to comp
+									{
+										document.getElementById("pointer").style.left=540;
+										document.getElementById("pointer").style.top=302;
+										stat.innerHTML="User has the ball ("+diff+")";
+										current=540302;
+									}
+									else
+									{
+										document.getElementById("pointer").style.left=854;
+										document.getElementById("pointer").style.top=321;
+										stat.innerHTML="CPU has the ball ("+diff+")";
+										current=854321;
+									}
+									break;			
+						case 718463:if(diff<2)//our objecttive is to predict a number close to comp
+									{
+										document.getElementById("pointer").style.left=704;
+										document.getElementById("pointer").style.top=302;
+										stat.innerHTML="User has the ball ("+diff+")";
+										current=704302;
+									}
+									else
+									{
+										document.getElementById("pointer").style.left=854;
+										document.getElementById("pointer").style.top=321;
+										stat.innerHTML="CPU has the ball ("+diff+")";
+										current=854321;
+									}
+									break;
+						case 85957: if(diff<2)//our objecttive is to predict a number close to comp
+									{
+										document.getElementById("pointer").style.left=704;
+										document.getElementById("pointer").style.top=190;
+										stat.innerHTML="User has the ball ("+diff+")";
+										current=704190;
+									}
+									else
+									{
+										document.getElementById("pointer").style.left=850;
+										document.getElementById("pointer").style.top=169;
+										stat.innerHTML="CPU has the ball ("+diff+")";
+										current=850169;
+									}
+									break;
+						case 850169:if(diff<2)//our objecttive is to predict a number close to comp
+									{
+										document.getElementById("pointer").style.left=704;
+										document.getElementById("pointer").style.top=190;
+										stat.innerHTML="User has the ball ("+diff+")";
+										current=704190;
+									}
+									else
+									{
+										document.getElementById("pointer").style.left=1065;
+										document.getElementById("pointer").style.top=259;
+										stat.innerHTML="CPU has a chance!! Can he score??";
+										current=1065259;
+									}
+									break;
+						case 854321:if(diff<2)//our objecttive is to predict a number close to comp
+									{
+										document.getElementById("pointer").style.left=704;
+										document.getElementById("pointer").style.top=302;
+										stat.innerHTML="User has the ball ("+diff+")";
+										current=704302;
+									}
+									else
+									{
+										document.getElementById("pointer").style.left=1065;
+										document.getElementById("pointer").style.top=259;
+										stat.innerHTML="CPU has the ball ("+diff+")";
+										current=1065259;
+									}
+									break;
+						case 864459:if(diff<2)//our objecttive is to predict a number close to comp
+									{
+										document.getElementById("pointer").style.left=704;
+										document.getElementById("pointer").style.top=302;
+										stat.innerHTML="User has the ball ("+diff+")";
+										current=704302;
+									}
+									else
+									{
+										document.getElementById("pointer").style.left=854;
+										document.getElementById("pointer").style.top=321;
+										stat.innerHTML="CPU has the ball ("+diff+")";
+										current=854321;
+									}
+									break;
+						case 904177:if(diff<2)//our objecttive is to predict a number close to comp
+									{
+										document.getElementById("pointer").style.left=859;
+										document.getElementById("pointer").style.top=57;
+										stat.innerHTML="User has the ball ("+diff+")";
+										current=85957;
+									}
+									else
+									{
+										document.getElementById("pointer").style.left=850;
+										document.getElementById("pointer").style.top=169;
+										stat.innerHTML="CPU has the ball ("+diff+")";
+										current=850169;
+									}
+									break;
+						case 911319:if(diff<2)//our objecttive is to predict a number close to comp
+									{
+										document.getElementById("pointer").style.left=864;
+										document.getElementById("pointer").style.top=459;
+										stat.innerHTML="User has the ball ("+diff+")";
+										current=864459;
+									}
+									else
+									{
+										document.getElementById("pointer").style.left=854;
+										document.getElementById("pointer").style.top=321;
+										stat.innerHTML="CPU has the ball ("+diff+")";
+										current=854321;
+									}
+									break;
+						case 1065259:if(diff<4)//our objecttive is to predict a number close to comp
+									{
+										document.getElementById("pointer").style.left=904;
+										document.getElementById("pointer").style.top=177;
+										stat.innerHTML="User has the ball ("+diff+")";
+										current=904177;
+									}
+									else
+									{
+										document.getElementById("pointer").style.left=1104;
+										document.getElementById("pointer").style.top=246;
+										current=1104246;
+										stat.innerHTML="CPU SCORES!!!! GOAL!!!!<br/>("+diff+")";
+										comp++;
+										window.alert("GOALLLLL!!!!!!!!!!!!!!!");
+										current=683259;
+										cs.innerHTML=comp;
+										document.getElementById("pointer").style.left=683;
+										document.getElementById("pointer").style.top=259;
+									}
+									break;
+						case 1104246:document.getElementById("pointer").style.left=683;
+									document.getElementById("pointer").style.top=259;
+									current=683259;
+									break;
+								
+					}
+			}
+			function result()
+			{
+				if(comp>user)
+					window.alert("comp wins");
+				else if(user>comp)
+					window.alert("user wins");
+				else if(user==comp)
+					window.alert("Its a tie");
+			}
+		</script>	
+	</head>
+	<body onload="myFunction()">
+		<div id="buttons">
+		<span>PLAY PAD</span>
+		<img src="button1.png" id="b1" width="50pt" height="200pt" onclick="one()"/><span id="n1" onclick="six()">1</span>
+		<img src="button1.png" id="b2" width="50pt" height="200pt" onclick="six()"/><span id="n2" onclick="one()">2</span>
+		<img src="button1.png" id="b3" width="50pt" height="200pt" onclick="four()"/><span id="n3" onclick="five()">3</span>
+		<img src="button1.png" id="b4" width="50pt" height="200pt" onclick="two()"/><span id="n4" onclick="four()">4</span>
+		<img src="button1.png" id="b5" width="50pt" height="200pt" onclick="three()"/><span id="n5" onclick="three()">5</span>
+		<img src="button1.png" id="b6" width="50pt" height="200pt" onclick="five()"/><span id="n6" onclick="two()">6</span>
+		</div>
+		<img src="1.png" id="bg"/>
+		<div ><img id="pointer" style="position:absolute;" src="ball.png" height="30" width="30" /></div>
+		<img id="formation" height="500"/>
+		<div id="score"><span id="u">USER</span><span id="us">0</span><span id="d">-</span><span id="cs">0</span><span id="c">CPU</span></div>
+		<div id="time"></div>
+		<div id="timetext"/><span id="t0">0</span><span id="t30">30</span><span id="t45">45</span><span id="t60">60</span><span id="t90">90</span></div>
+		<div id="status"></div>
+		<a href="loading.html"> EXIT </a>
+	</body>
+</html>
