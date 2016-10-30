@@ -1,0 +1,14 @@
+.on{ position:absolute;z-index:1;}
+img#txt{
+	width:35%;
+	height:30%;
+	top:15%;
+	left:6%;
+	}
+span#grphcs{
+	left:1%;
+	top:15%;
+	}
+img#kick{height:194px;width:125px}
+a#link{text-decoration:none;color:black;left:25%;top:42%;font-family:Bradley Hand ITC;font-size:15pt;border: 1px solid black;border-radius:100px;background:-moz-linear-gradient(right,rgb(150,150,150),black); background:-ms-linear-gradient(right,rgb(150,150,150),black); background:-webkit-linear-gradient(right,rgb(150,150,150),black); background:-o-linear-gradient(right,rgb(150,150,150),black);color:red;padding:10px}
+a:hover#link{border-radius:100px;background:-moz-linear-gradient(right,rgb(200,200,200),black); background:-ms-linear-gradient(right,rgb(200,200,200),black); background:-webkit-linear-gradient(right,rgb(200,200,200),black); background:-o-linear-gradient(right,rgb(200,200,200),black);}

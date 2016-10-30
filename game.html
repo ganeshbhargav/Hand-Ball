@@ -1,0 +1,35 @@
+<html>
+	<head>
+		<style>
+			body
+				{
+					background-repeat: no-repeat;
+					background-size: 1700px 700px;
+				}
+		</style>
+		
+		<script>
+			var interval=null;
+			var i=0;
+			function run()
+			{
+				if(i==21)
+					i=0;
+				document.body.style.backgroundImage = "url('"+i+".png')";
+				i++;
+			}
+				
+			function myFunction() 
+			{
+				interval=window.setInterval("run()",500);
+			}
+	</script>
+	</head>
+	<body onload="myFunction()">
+
+	<a href="google.com">cllick here to continue</a>
+	
+
+
+</body>
+</html>

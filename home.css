@@ -1,0 +1,13 @@
+span a{
+font-family: Lucida Calligraphy;
+text-decoration:none;
+border:1pt solid black;
+border-radius:100% 10% 100% 10%;
+background-color:cyan;
+padding:20pt;
+width:120pt;
+text-align:center;
+color:black;
+}
+span a:hover{background:orange;padding:40pt; }
+span.txt{position:absolute;font-size:20pt;}
